@@ -7,6 +7,7 @@ import { HeaderComponent } from './components/header/header.component';
 import { MenuButtonComponent } from './components/menu-button/menu-button.component';
 import { MenuComponent } from './components/menu/menu.component';
 import { SidebarComponent } from './components/sidebar/sidebar.component';
+import { JoinComponent } from './components/join/join.component';
 
 @NgModule({
   declarations: [
@@ -15,6 +16,7 @@ import { SidebarComponent } from './components/sidebar/sidebar.component';
     MenuComponent,
     MenuButtonComponent,
     SidebarComponent,
+    JoinComponent,
   ],
   imports: [
     BrowserModule,
