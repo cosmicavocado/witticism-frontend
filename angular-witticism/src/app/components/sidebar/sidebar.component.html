@@ -1,0 +1,9 @@
+<div class="sidebar d-flex flex-column flex-shrink-0 p-3 bg-dark">
+    <!-- If game is true -->
+    <ng-container>
+        <!-- For players, display player name here -->
+        <ul class="flex-column ms-4 my-auto" *ngFor="let player of players">
+            <li class="player fs-5">{{player}}</li>
+        </ul>
+    </ng-container>
+</div>
