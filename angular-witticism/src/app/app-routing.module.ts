@@ -3,12 +3,11 @@ import { RouterModule, Routes } from '@angular/router';
 import { MenuComponent } from './components/menu/menu.component';
 
 
-
 const routes: Routes = [
   {
     path: '',
     component: MenuComponent
-  }
+  },
 ];
 
 @NgModule({
