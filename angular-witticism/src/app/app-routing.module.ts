@@ -6,10 +6,10 @@ import { MenuComponent } from './components/menu/menu.component';
 
 
 const routes: Routes = [
-  {
-    path: '',
-    component: MenuComponent
-  },
+  // {
+  //   path: '',
+  //   component: MenuComponent
+  // },
   {
     path: 'join',
     component: JoinComponent
