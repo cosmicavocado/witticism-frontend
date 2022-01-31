@@ -11,6 +11,7 @@ import { JoinComponent } from './components/join/join.component';
 import { HostComponent } from './components/host/host.component';
 import { PromptComponent } from './components/prompt/prompt.component';
 import { ResponseComponent } from './components/response/response.component';
+import { AnswersComponent } from './components/answers/answers.component';
 
 @NgModule({
   declarations: [
@@ -23,6 +24,7 @@ import { ResponseComponent } from './components/response/response.component';
     HostComponent,
     PromptComponent,
     ResponseComponent,
+    AnswersComponent,
   ],
   imports: [
     BrowserModule,
