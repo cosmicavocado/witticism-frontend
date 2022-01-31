@@ -9,6 +9,7 @@ import { MenuComponent } from './components/menu/menu.component';
 import { SidebarComponent } from './components/sidebar/sidebar.component';
 import { JoinComponent } from './components/join/join.component';
 import { HostComponent } from './components/host/host.component';
+import { PromptComponent } from './components/prompt/prompt.component';
 
 @NgModule({
   declarations: [
@@ -19,6 +20,7 @@ import { HostComponent } from './components/host/host.component';
     SidebarComponent,
     JoinComponent,
     HostComponent,
+    PromptComponent,
   ],
   imports: [
     BrowserModule,
