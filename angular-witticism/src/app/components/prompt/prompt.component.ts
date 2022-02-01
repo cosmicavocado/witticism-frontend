@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 
 @Component({
   selector: 'app-prompt',
@@ -6,11 +6,11 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./prompt.component.css']
 })
 export class PromptComponent implements OnInit {
-  promptText: string = '';
+  @Input() promptText: any;
+
   constructor() { }
 
   ngOnInit(): void {
-    this.promptText = 'This is a sample prompt. Lorem ipsum dolor sit amet dolore magna aliqua. Fill in the ______';
   }
 
 }

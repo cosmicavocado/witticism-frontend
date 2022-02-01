@@ -13,6 +13,7 @@ import { PromptComponent } from './components/prompt/prompt.component';
 import { ResponseComponent } from './components/response/response.component';
 import { AnswersComponent } from './components/answers/answers.component';
 import { VoteComponent } from './components/vote/vote.component';
+import { WaitComponent } from './components/wait/wait.component';
 
 @NgModule({
   declarations: [
@@ -27,6 +28,7 @@ import { VoteComponent } from './components/vote/vote.component';
     ResponseComponent,
     AnswersComponent,
     VoteComponent,
+    WaitComponent,
   ],
   imports: [
     BrowserModule,
