@@ -12,6 +12,7 @@ import { HostComponent } from './components/host/host.component';
 import { PromptComponent } from './components/prompt/prompt.component';
 import { ResponseComponent } from './components/response/response.component';
 import { AnswersComponent } from './components/answers/answers.component';
+import { VoteComponent } from './components/vote/vote.component';
 
 @NgModule({
   declarations: [
@@ -25,6 +26,7 @@ import { AnswersComponent } from './components/answers/answers.component';
     PromptComponent,
     ResponseComponent,
     AnswersComponent,
+    VoteComponent,
   ],
   imports: [
     BrowserModule,
