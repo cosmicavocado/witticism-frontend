@@ -14,6 +14,7 @@ import { ResponseComponent } from './components/response/response.component';
 import { AnswersComponent } from './components/answers/answers.component';
 import { VoteComponent } from './components/vote/vote.component';
 import { WaitComponent } from './components/wait/wait.component';
+import { PromptScreenComponent } from './components/prompt-screen/prompt-screen.component';
 
 @NgModule({
   declarations: [
@@ -29,6 +30,7 @@ import { WaitComponent } from './components/wait/wait.component';
     AnswersComponent,
     VoteComponent,
     WaitComponent,
+    PromptScreenComponent,
   ],
   imports: [
     BrowserModule,
