@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { GameService } from 'src/app/game.service';
+import { Player } from 'src/app/player';
 
 @Component({
   selector: 'app-sidebar',
@@ -6,12 +8,15 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./sidebar.component.css']
 })
 export class SidebarComponent implements OnInit {
-  players: any;
+  public players: Player[];
 
-  constructor() { }
+  constructor(private gameService: GameService) { }
 
   ngOnInit(): void {
-    this.players = ['Player1', 'Player2', 'Player3', 'Player4', 'Player5', 'Player6', 'Player7', 'Player8'];
+    this.gameService.getPlayers().subscribe((players: Player[]) => {
+      console.log(players);
+      this.players = players;
+    })
   }
 
 }

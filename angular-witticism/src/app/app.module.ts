@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
+import { HttpClientModule } from '@angular/common/http';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -15,6 +16,7 @@ import { AnswersComponent } from './components/answers/answers.component';
 import { VoteComponent } from './components/vote/vote.component';
 import { WaitComponent } from './components/wait/wait.component';
 import { PromptScreenComponent } from './components/prompt-screen/prompt-screen.component';
+import { GameService } from './game.service';
 
 @NgModule({
   declarations: [
@@ -34,9 +36,10 @@ import { PromptScreenComponent } from './components/prompt-screen/prompt-screen.
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    HttpClientModule
   ],
-  providers: [],
+  providers: [GameService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
