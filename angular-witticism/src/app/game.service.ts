@@ -12,6 +12,7 @@ export class GameService {
   baseUrl: string = 'http://localhost:9092/api/game'
   headers = new HttpHeaders({'Content-Type': 'application'});
   body = {};
+  public game: Game;
 
   constructor(private http: HttpClient) { }
 

@@ -3,7 +3,6 @@ import { BrowserModule } from '@angular/platform-browser';
 import { HttpClientModule } from '@angular/common/http';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
-
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { HeaderComponent } from './components/header/header.component';
@@ -16,9 +15,11 @@ import { ResponseComponent } from './components/response/response.component';
 import { AnswersComponent } from './components/answers/answers.component';
 import { VoteComponent } from './components/vote/vote.component';
 import { WaitComponent } from './components/wait/wait.component';
-import { PromptScreenComponent } from './components/prompt-screen/prompt-screen.component';
 import { GameService } from './game.service';
-import { JoinComponent } from './join/join.component';
+import { JoinComponent } from './components/join/join.component';
+import { LobbyComponent } from './components/lobby/lobby.component';
+import { MainComponent } from './components/main/main.component';
+import { PlayerComponent } from './components/player/player.component';
 
 @NgModule({
   declarations: [
@@ -33,8 +34,10 @@ import { JoinComponent } from './join/join.component';
     AnswersComponent,
     VoteComponent,
     WaitComponent,
-    PromptScreenComponent,
     JoinComponent,
+    LobbyComponent,
+    MainComponent,
+    PlayerComponent,
   ],
   imports: [
     BrowserModule,
