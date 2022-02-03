@@ -31,4 +31,8 @@ export class JoinGameComponent implements OnInit {
     })
   }
 
+  test() {
+    console.log(this.joinForm.value)
+  }
+
 }

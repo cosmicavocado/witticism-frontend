@@ -4,7 +4,6 @@ import { Observable } from 'rxjs';
 
 import { Player } from './player';
 import { Game } from './game';
-import { Join } from './join';
 
 @Injectable({
   providedIn: 'root'

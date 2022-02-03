@@ -1,5 +1,5 @@
 <div class="row">
-    <form action="" formGroup="joinForm">
+    <form action="" formGroup="joinForm" (submit)="test()">
         <input type="text" name="code" placeholder="CODE" minlength="4" maxlength="4" required class="col-md-4 mx-2 text-uppercase">
         <input type="text" name="name" placeholder="NAME" minlength="1" maxlength="12" required class="col-md-4 mx-2 text-uppercase">
         <input type="submit" name="submit" value="Submit" class="btn-primary col-md-2 mx-2">
