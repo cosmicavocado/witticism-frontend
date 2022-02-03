@@ -28,10 +28,12 @@ export class HostComponent implements OnInit {
     const code = this.hostForm.get('code').value.toUpperCase();
     const name = this.hostForm.get('name').value.toUpperCase();
 
-    this.gameService.createGame(code, name).subscribe((game: any) => {
-      console.log(game);
-      return this.game = game;
+    this.gameService.createGame(code, name).subscribe((response) => {
+      console.log(response);
+      this.game = response.body;
+      return response;
     })
+    window.open('http://localhost:4200/lobby', '_self');
   }
   
 }
