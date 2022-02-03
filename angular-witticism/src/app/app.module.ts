@@ -18,7 +18,7 @@ import { VoteComponent } from './components/vote/vote.component';
 import { WaitComponent } from './components/wait/wait.component';
 import { PromptScreenComponent } from './components/prompt-screen/prompt-screen.component';
 import { GameService } from './game.service';
-import { JoinGameComponent } from './join-game/join-game.component';
+import { JoinComponent } from './join/join.component';
 
 @NgModule({
   declarations: [
@@ -34,7 +34,7 @@ import { JoinGameComponent } from './join-game/join-game.component';
     VoteComponent,
     WaitComponent,
     PromptScreenComponent,
-    JoinGameComponent,
+    JoinComponent,
   ],
   imports: [
     BrowserModule,

@@ -1,3 +1,7 @@
-
-<!-- Once host creates game, join will disappear and this screen becomes main game screen 
- while host waits for players to join -->
+<div class="row">
+    <form action="" [formGroup]="hostForm" (submit)="createGame()">
+        <input formControlName="code" type="text" name="code" placeholder="CODE" minlength="4" maxlength="4" required class="col-md-4 mx-2 text-uppercase">
+        <input formControlName="name" type="text" name="name" placeholder="NAME" minlength="1" maxlength="12" required class="col-md-4 mx-2 text-uppercase">
+        <input type="submit" name="submit" value="Submit" class="btn-primary col-md-2 mx-2">
+    </form>
+</div>
