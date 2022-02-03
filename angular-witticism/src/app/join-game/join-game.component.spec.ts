@@ -1,20 +1,20 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { JoinComponent } from './join.component';
+import { JoinGameComponent } from './join-game.component';
 
-describe('JoinComponent', () => {
-  let component: JoinComponent;
-  let fixture: ComponentFixture<JoinComponent>;
+describe('JoinGameComponent', () => {
+  let component: JoinGameComponent;
+  let fixture: ComponentFixture<JoinGameComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ JoinComponent ]
+      declarations: [ JoinGameComponent ]
     })
     .compileComponents();
   });
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(JoinComponent);
+    fixture = TestBed.createComponent(JoinGameComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

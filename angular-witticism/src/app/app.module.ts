@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { HttpClientModule } from '@angular/common/http';
+import { FormsModule } from '@angular/forms';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -17,6 +18,7 @@ import { VoteComponent } from './components/vote/vote.component';
 import { WaitComponent } from './components/wait/wait.component';
 import { PromptScreenComponent } from './components/prompt-screen/prompt-screen.component';
 import { GameService } from './game.service';
+import { JoinGameComponent } from './join-game/join-game.component';
 
 @NgModule({
   declarations: [
@@ -33,11 +35,13 @@ import { GameService } from './game.service';
     VoteComponent,
     WaitComponent,
     PromptScreenComponent,
+    JoinGameComponent,
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    HttpClientModule
+    HttpClientModule,
+    FormsModule
   ],
   providers: [GameService],
   bootstrap: [AppComponent]
