@@ -23,8 +23,12 @@ export class JoinGameComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  joinGame(code: string, name: string) {
-    console.log("Code: " + code + " Name: " + name);
+  joinGame() {
+    console.log(this.joinForm.value)
+    
+    const code = this.joinForm.get('code').value.toUpperCase;
+    const name = this.joinForm.get('name').value.toUpperCase;
+
     this.gameService.joinGame(code, name).subscribe((game: Game) => {
       console.log(game);
       return this.game = game;
