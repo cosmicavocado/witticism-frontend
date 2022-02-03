@@ -11,6 +11,7 @@ import { Game } from '../../game';
 export class HostComponent implements OnInit {
   public hostForm: FormGroup;
   public game: Game;
+  public start: boolean = false;
 
   constructor(private gameService: GameService) { 
     this.hostForm = new FormGroup({
@@ -29,11 +30,13 @@ export class HostComponent implements OnInit {
     const name = this.hostForm.get('name').value.toUpperCase();
 
     this.gameService.createGame(code, name).subscribe((response) => {
-      console.log(response);
+      console.log(response),
+      (err: string) => console.log(err),
       this.game = response.body;
+      this.start = true;
       return response;
     })
-    window.open('http://localhost:4200/lobby', '_self');
+    // window.open('http://localhost:4200/lobby', '_self');
   }
   
 }

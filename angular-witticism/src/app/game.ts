@@ -7,5 +7,4 @@ export class Game {
     public votes: string;
     public stage: string;
     public isActive: boolean;
-    public players: Player[];
 }
