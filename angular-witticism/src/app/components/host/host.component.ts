@@ -12,7 +12,12 @@ export class HostComponent implements OnInit {
   public hostForm: FormGroup;
   public game: Game;
 
-  constructor(private gameService: GameService) { }
+  constructor(private gameService: GameService) { 
+    this.hostForm = new FormGroup({
+      'code': new FormControl('', [Validators.required]),
+      'name': new FormControl('', [Validators.required])
+    });
+  }
 
   ngOnInit(): void {
   }
@@ -20,10 +25,10 @@ export class HostComponent implements OnInit {
   createGame() {
     console.log(this.hostForm.value)
     
-    const code = this.hostForm.get('code').value.toUpperCase;
-    const name = this.hostForm.get('name').value.toUpperCase;
+    const code = this.hostForm.get('code').value.toUpperCase();
+    const name = this.hostForm.get('name').value.toUpperCase();
 
-    this.gameService.joinGame(code, name).subscribe((game: any) => {
+    this.gameService.createGame(code, name).subscribe((game: any) => {
       console.log(game);
       return this.game = game;
     })
