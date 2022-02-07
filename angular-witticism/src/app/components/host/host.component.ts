@@ -11,6 +11,7 @@ import { Game } from '../../game';
 export class HostComponent implements OnInit {
   public hostForm: FormGroup;
   public game: Game;
+  public join: boolean = false;
   public start: boolean = false;
 
   constructor(private gameService: GameService) { 
@@ -33,10 +34,10 @@ export class HostComponent implements OnInit {
       console.log(response),
       (err: string) => console.log(err),
       this.game = response.body;
-      this.start = true;
+      this.join = true;
       return response;
     })
-    // window.open('http://localhost:4200/lobby', '_self');
+    window.open(`http://localhost:4200/lobby/${code}`,'_self');
   }
   
 }
