@@ -12,6 +12,8 @@ export class JoinComponent implements OnInit {
 
   public joinForm: FormGroup;
   public game: Game;
+  join: boolean = false;
+  start: boolean = false;
 
   constructor(private gameService: GameService) {
     this.joinForm = new FormGroup({
@@ -32,9 +34,10 @@ export class JoinComponent implements OnInit {
     this.gameService.joinGame(code, name).subscribe((response: any) => {
       console.log(response);
       this.game = response.body;
+      this.start = true;
       return response;
     })
-    window.open('http://localhost:4200/lobby','_self');
+    window.open(`http://localhost:4200/lobby/${code}`,'_self');
   }
 
 }
