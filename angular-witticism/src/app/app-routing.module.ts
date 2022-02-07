@@ -22,7 +22,7 @@ const routes: Routes = [
     component: HostComponent
   },
   {
-    path: 'lobby',
+    path: 'lobby/:code',
     component: LobbyComponent
   },
   {
