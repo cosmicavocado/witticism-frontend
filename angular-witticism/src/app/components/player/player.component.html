@@ -1,2 +1,11 @@
 <!-- ngIf responding > show prompt + response component -->
+<app-prompt [promptText]="'Prompt'"></app-prompt>
+<section class="d-grid my-4">
+    <div class="row">
+        <input type="text" name="response" class="response form-control mx-auto col-auto" maxlength="50">
+    </div>
+    <div class="row mx-auto">
+        <app-menu-button type="submit" [label]="'Submit'" class="submit"></app-menu-button>
+    </div>
+</section>
 <!-- nfIf voting > show answers & vote on click -->
