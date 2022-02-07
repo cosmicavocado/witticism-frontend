@@ -23,9 +23,15 @@ export class GameService {
   }
 
   // join game
-  joinGame(code: string, name: string) {
+  joinGame(code: string, name: string): Observable<any> {
     const url = `${this.baseUrl}/${code}/join/${name}`;
     return this.http.post(url,this.body, {headers: this.headers, observe: "response"});
+  }
+
+  // start game
+  startGame(code: string): Observable<Game> {
+    const url = `${this.baseUrl}/${code}/start`;
+    return this.http.get<Game>(url);
   }
 
   // get players
