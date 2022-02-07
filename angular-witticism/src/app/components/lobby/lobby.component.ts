@@ -12,6 +12,7 @@ export class LobbyComponent implements OnInit {
 
   game: Game;
   code: string = '';
+  host: string = '';
 
   constructor(private route: ActivatedRoute, private gameService: GameService) { }
 
@@ -29,5 +30,7 @@ export class LobbyComponent implements OnInit {
       this.game = response;
       return response;
     });
+    window.open(`http://localhost:4200/main/${this.code}`);
+    window.open(`http://localhost:4200/player/${this.code}`,'_self');
   }
 }
