@@ -1,7 +1,7 @@
 <div class="container">
     <app-prompt [promptText]="'Is everyone in?'"></app-prompt>
     <!-- ngIf players > 2 -->
-    <app-menu-button [label]="'Play'"></app-menu-button>
+    <app-menu-button [label]="'Play'" (click)="startGame()"></app-menu-button>
 </div>
 
 <div class="container">
