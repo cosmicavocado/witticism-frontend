@@ -19,7 +19,7 @@ const routes: Routes = [
   },
   {
     path: 'host',
-    component: HostComponent
+    component: HostComponent,
   },
   {
     path: 'lobby/:code',
@@ -30,7 +30,7 @@ const routes: Routes = [
     component: MainComponent
   },
   {
-    path: 'player',
+    path: 'player/:code',
     component: PlayerComponent
   }
 ];
