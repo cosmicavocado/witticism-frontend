@@ -1,9 +1,10 @@
 import { Injectable } from '@angular/core';
-import { HttpClient, HttpHeaders } from '@angular/common/http';
-import { Observable } from 'rxjs';
+import { HttpClient, HttpHeaders, HttpResponse } from '@angular/common/http';
+import { Observable, map } from 'rxjs';
 
 import { Player } from './player';
 import { Game } from './game';
+import { Prompt } from './prompt';
 
 @Injectable({
   providedIn: 'root'
@@ -34,8 +35,26 @@ export class GameService {
     return this.http.get<Game>(url);
   }
 
+  // get prompts
+  getPrompts(code: string): Observable<Prompt[]> {
+    const url = `${this.baseUrl}/${code}/draw`;
+    return this.http.get<Prompt[]>(url);
+  }
+
   // get players
   getPlayers(): Observable<Player[]> {
     return this.http.get<Player[]>(`${this.baseUrl}/1/players`);
+  }
+
+  // send response
+  sendResponse(text: string): Observable<any> {
+    const url = `${this.baseUrl}/response`;
+    const response = {
+      "promptId":1,
+      "playerId":2,
+      "promptText":`${text}`,
+    }
+    const body = JSON.stringify({response});
+    return this.http.post<Response>(url,body,{headers:this.headers, observe: "response"});
   }
 }
