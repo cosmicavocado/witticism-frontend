@@ -17,8 +17,8 @@ export class JoinComponent implements OnInit {
 
   constructor(private gameService: GameService) {
     this.joinForm = new FormGroup({
-      'code': new FormControl('', [Validators.required]),
-      'name': new FormControl('', [Validators.required])
+      'code': new FormControl('', [Validators.required, Validators.minLength(4), Validators.maxLength(4)]),
+      'name': new FormControl('', [Validators.required, Validators.minLength(1), Validators.maxLength(12)])
     });
    }
 
