@@ -48,13 +48,14 @@ export class GameService {
 
   // send response
   sendResponse(text: string): Observable<any> {
+    console.log("Calling sendResponse")
     const url = `${this.baseUrl}/response`;
-    const response = {
-      "promptId":1,
-      "playerId":2,
-      "promptText":`${text}`,
+    const body = {
+      promptId:1,
+      playerId:1,
+      responseText:`${text}`,
     }
-    const body = JSON.stringify({response});
-    return this.http.post<Response>(url,body,{headers:this.headers, observe: "response"});
+    console.log(body)
+    return this.http.post(url,body);
   }
 }

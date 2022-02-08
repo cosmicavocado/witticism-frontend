@@ -14,10 +14,11 @@ export class PlayerComponent implements OnInit {
   code: string = '';
   prompts: any;
   public responseForm: FormGroup;
+  text: string = '';
 
   constructor(private route: ActivatedRoute, private gameService: GameService) { 
     this.responseForm = new FormGroup({
-      'response': new FormControl('', [Validators.required])
+      'text': new FormControl('', [Validators.required, Validators.minLength(1), Validators.maxLength(50)])
     })
   }
 
@@ -25,16 +26,24 @@ export class PlayerComponent implements OnInit {
     this.route.params.subscribe(params => {
       this.code = params['code'];
     })
-    this.gameService.getPrompts(this.code)
-    .subscribe(response => {
-      console.log(response),
-      this.prompts = response;
-      (err: string) => console.log(err)
-      return response;
-    })
+    // this.gameService.getPrompts(this.code)
+    // .subscribe(response => {
+    //   console.log(response),
+    //   this.prompts = response;
+    //   (err: string) => console.log(err)
+    //   return response;
+    // })
   }
 
   sendResponse() {
-    return this.gameService.sendResponse(this.responseForm.value())
+    let responseText = this.responseForm.get('text').value;
+    console.log(responseText);
+    this.gameService.sendResponse(responseText)
+    .subscribe(response => {
+      console.log(response);
+      this.text = response;
+      (err: string) => console.log(err)
+      return response;
+    })
   }
 }
