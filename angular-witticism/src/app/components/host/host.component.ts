@@ -37,7 +37,7 @@ export class HostComponent implements OnInit {
       this.join = true;
       return response;
     })
-    window.open(`http://localhost:4200/lobby/${code}`,'_self');
+    window.open(`http://localhost:4200/lobby/${code}/${name}`,'_self');
   }
   
 }
