@@ -22,7 +22,7 @@ const routes: Routes = [
     component: HostComponent,
   },
   {
-    path: 'lobby/:code',
+    path: 'lobby/:code/:name',
     component: LobbyComponent
   },
   {
@@ -30,7 +30,7 @@ const routes: Routes = [
     component: MainComponent
   },
   {
-    path: 'player/:code',
+    path: 'player/:code/:name',
     component: PlayerComponent
   }
 ];
