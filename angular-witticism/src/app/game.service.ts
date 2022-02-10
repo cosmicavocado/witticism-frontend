@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
-import { HttpClient, HttpHeaders, HttpResponse } from '@angular/common/http';
-import { Observable, map } from 'rxjs';
+import { HttpClient, HttpErrorResponse, HttpHeaders, HttpResponse } from '@angular/common/http';
+import { Observable, map, catchError, throwError } from 'rxjs';
 
 import { Player } from './player';
 import { Game } from './game';
@@ -35,15 +35,46 @@ export class GameService {
     return this.http.get<Game>(url);
   }
 
+  // get game
+  getGame(code: string): Observable<any> {
+    const url = `${this.baseUrl}/${code}`;
+    return this.http.get<Game>(url)
+    // .pipe(
+    //   map(response => {
+    //     if (response.id) {
+    //       return response;
+    //     } else {
+    //       throw new Error("Valid game not returned!")
+    //     }
+    //   })
+    // )
+  }
+
   // get prompts
   getPrompt(code: string): Observable<Prompt[]> {
     const url = `${this.baseUrl}/${code}/draw`;
     return this.http.get<Prompt[]>(url);
   }
 
+  // get player
+  getPlayer(gameId: number, name: string): Observable<Player> {
+    const url = `${this.baseUrl}/${gameId}/player/${name}`;
+    return this.http.get<Player>(url)
+    .pipe(
+      map(response => {
+        if (response.id) {
+          return response;
+        } else {
+          throw new Error("Valid game not returned!")
+        }
+      })
+    )
+  }
+
   // get players
   getPlayers(): Observable<Player[]> {
-    return this.http.get<Player[]>(`${this.baseUrl}/1/players`);
+    const url = `${this.baseUrl}/1/players`;
+    return this.http.get<Player[]>(url);
   }
 
   // send response

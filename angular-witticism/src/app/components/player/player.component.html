@@ -1,10 +1,19 @@
 <!-- ngIf responding > show prompt + response component -->
 <app-prompt [promptText]="this.prompt.text"></app-prompt>
-<section class="d-grid my-4">
+<section class="d-grid my-4" *ngIf="this.responded==false">
     <form class="row" [formGroup]="responseForm" (submit)="sendResponse()">
         <input formControlName="text" type="text" name="text" class="response form-control mx-auto col-auto">
         <input type="submit" name="submit" value="Submit" class="btn-primary col-md-2 mx-2">
         <!-- <app-menu-button [label]="'Submit'" type="submit" name="submit" ></app-menu-button> -->
     </form>
 </section>
-<!-- nfIf voting > show answers & vote on click -->
+<!-- If this player has responded but not all players have responded show wait message -->
+<section *ngIf="this.responded==true && this.allResponses==false">
+    <app-prompt [promptText]="'Waiting for all player responses...'"></app-prompt>
+</section>
+<!-- nfIf phase is voting: show answers & vote on click -->
+<section class="d-grid">
+    <div class="row">
+        <div></div>
+    </div>
+</section>
