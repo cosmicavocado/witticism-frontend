@@ -12,13 +12,16 @@ export class LobbyComponent implements OnInit {
 
   game: Game;
   code: string = '';
-  host: string = '';
+  name: string = '';
 
   constructor(private route: ActivatedRoute, private gameService: GameService) { }
 
   ngOnInit(): void {
-    this.route.paramMap.subscribe(params => {
-      this.code = params.get('code');
+    // map params
+    this.route.params.subscribe(params => {
+      this.code = params['code'];
+      this.name = params['name'];
+      return params;
     })
   }
 
@@ -30,7 +33,6 @@ export class LobbyComponent implements OnInit {
       this.game = response;
       return response;
     });
-    window.open(`http://localhost:4200/main/${this.code}`);
-    window.open(`http://localhost:4200/player/${this.code}`,'_self');
+    window.open(`http://localhost:4200/player/${this.code}/${this.name}`,'_self');
   }
 }
