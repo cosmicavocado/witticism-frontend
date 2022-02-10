@@ -12,7 +12,7 @@ import { GameService } from 'src/app/game.service';
 export class PlayerComponent implements OnInit {
 
   code: string = '';
-  prompts: any;
+  prompt: any;
   public responseForm: FormGroup;
   text: string = '';
 
@@ -26,13 +26,13 @@ export class PlayerComponent implements OnInit {
     this.route.params.subscribe(params => {
       this.code = params['code'];
     })
-    // this.gameService.getPrompts(this.code)
-    // .subscribe(response => {
-    //   console.log(response),
-    //   this.prompts = response;
-    //   (err: string) => console.log(err)
-    //   return response;
-    // })
+    this.gameService.getPrompt(this.code)
+    .subscribe(response => {
+      console.log(response),
+      this.prompt = response;
+      (err: string) => console.log(err)
+      return response;
+    })
   }
 
   sendResponse() {

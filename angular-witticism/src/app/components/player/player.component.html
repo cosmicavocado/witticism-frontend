@@ -1,5 +1,5 @@
 <!-- ngIf responding > show prompt + response component -->
-<app-prompt [promptText]="this.prompts | json"></app-prompt>
+<app-prompt [promptText]="this.prompt.text"></app-prompt>
 <section class="d-grid my-4">
     <form class="row" [formGroup]="responseForm" (submit)="sendResponse()">
         <input formControlName="text" type="text" name="text" class="response form-control mx-auto col-auto">

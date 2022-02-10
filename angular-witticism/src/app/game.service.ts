@@ -36,7 +36,7 @@ export class GameService {
   }
 
   // get prompts
-  getPrompts(code: string): Observable<Prompt[]> {
+  getPrompt(code: string): Observable<Prompt[]> {
     const url = `${this.baseUrl}/${code}/draw`;
     return this.http.get<Prompt[]>(url);
   }
