@@ -78,15 +78,21 @@ export class GameService {
   }
 
   // send response
-  sendResponse(text: string): Observable<any> {
+  sendResponse(promptId: number, playerId: number, responseText: string): Observable<any> {
     console.log("Calling sendResponse")
     const url = `${this.baseUrl}/response`;
     const body = {
-      promptId:1,
-      playerId:1,
-      responseText:`${text}`,
+      promptId:`${promptId}`,
+      playerId:`${playerId}`,
+      responseText:`${responseText}`,
     }
     console.log(body)
     return this.http.post(url,body);
+  }
+
+  // update game
+  updateGame(code: string): Observable<Game> {
+    const url = `${this.baseUrl}/${code}/update`;
+    return this.http.get<Game>(url);
   }
 }

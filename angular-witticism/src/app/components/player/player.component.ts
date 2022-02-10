@@ -1,7 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { ActivatedRoute } from '@angular/router';
-import { map } from 'rxjs';
+import {interval} from "rxjs/internal/observable/interval";
+import { map, startWith, Subscription, switchMap } from 'rxjs';
 import { Game } from 'src/app/game';
 
 import { GameService } from 'src/app/game.service';
@@ -22,6 +23,7 @@ export class PlayerComponent implements OnInit {
   gameId: number;
   // player identifier
   player: Player;
+  playerId: number;
   // prompt identifiers
   prompt: any;
   promptId: number;
@@ -32,6 +34,8 @@ export class PlayerComponent implements OnInit {
   responded: boolean = false;
   allResponses: boolean = false;
   phase: string = '';
+  // polling
+  timeInterval: Subscription;
 
   constructor(private route: ActivatedRoute, private gameService: GameService) { 
     this.responseForm = new FormGroup({
@@ -51,14 +55,14 @@ export class PlayerComponent implements OnInit {
     .subscribe(game => {
       this.game = game;
       this.gameId = game.id;
+      // get player
       this.gameService.getPlayer(this.gameId,this.name).subscribe(player => {
         this.player = player;
+        this.playerId = player.id;
         console.log(player);
         return player;
       })
-      return game;
-    })
-    // get prompt
+      // get prompt
     this.gameService.getPrompt(this.code)
     .subscribe(prompt => {
       console.log(prompt),
@@ -66,12 +70,24 @@ export class PlayerComponent implements OnInit {
       this.promptId = this.prompt.id;
       return prompt;
     })
+      return game;
+    })
+    // poll for game changes
+    this.timeInterval = interval(5000)
+    .pipe(
+      startWith(0),
+      switchMap(() => this.gameService.updateGame(this.code))
+    ).subscribe(game => {
+      console.log(game);
+      this.game = game;
+    }),
+      err => console.log('HTTP Error', err);
   }
 
   sendResponse() {
     let responseText = this.responseForm.get('text').value;
     console.log(responseText);
-    this.gameService.sendResponse(responseText)
+    this.gameService.sendResponse(this.promptId, this.playerId, responseText)
     .subscribe(response => {
       console.log(response);
       this.text = response;
@@ -79,5 +95,9 @@ export class PlayerComponent implements OnInit {
       this.responded = true;
       return response;
     })
+  }
+
+  ngOnDestroy(): void {
+    this.timeInterval.unsubscribe();
   }
 }
