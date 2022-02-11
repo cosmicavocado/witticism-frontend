@@ -21,8 +21,8 @@ This is the front-end for a game that's inspired by party games like Quiplash an
 ## Design
 
 - [User Stories](planning/user-stories.md)
-- [Wireframes](/planning/wireframe.md)
-- [ERD](/planning/erd.png)
+- [Wireframes](planning/wireframe.md)
+- [ERD](planning/erd.md)
 
 ## Process
 
