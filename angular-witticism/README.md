@@ -38,7 +38,8 @@ This is the front-end for a game that's inspired by party games like Quiplash an
 
 - Aimed to do a little too much given the amount of time I had
     - Had to trim a lot and refactor code to adjust for the smaller scale
-- Thought front-end components would be hardest part for me so I did a made a bunch of them over the weekend (which were to match my original)
+- Thought front-end components would be hardest part for me so I made a bunch of them over the weekend (which were to match my original wireframes).
+    - Many of the components were scrapped when I scaled back
 
 # Challenges
 
@@ -50,6 +51,7 @@ This is the front-end for a game that's inspired by party games like Quiplash an
 - I made a strong attempt at mimicking a game I've always loved
 - Game is mostly in working order
 - I got to learn a ton about angular
+- I can build on this and improve
 
 # What I Learned
 
