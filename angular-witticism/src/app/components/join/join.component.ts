@@ -37,7 +37,7 @@ export class JoinComponent implements OnInit {
       this.start = true;
       return response;
     })
-    window.open(`http://localhost:4200/player/${code}/${name}`,'_self');
+    window.open(`http://localhost:4200/lobby/${code}/${name}`,'_self');
   }
 
 }

@@ -5,6 +5,7 @@ import { Observable, map, catchError, throwError } from 'rxjs';
 import { Player } from './player';
 import { Game } from './game';
 import { Prompt } from './prompt';
+import { Response } from './response';
 
 @Injectable({
   providedIn: 'root'
@@ -94,5 +95,11 @@ export class GameService {
   updateGame(code: string): Observable<Game> {
     const url = `${this.baseUrl}/${code}/update`;
     return this.http.get<Game>(url);
+  }
+
+  // get responses
+  getResponses(code: string, promptId: number): Observable<Response[]> {
+    const url = `${this.baseUrl}/${code}/responses/${promptId}`;
+    return this.http.get<Response[]>(url);
   }
 }
