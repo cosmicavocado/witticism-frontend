@@ -1,5 +1,6 @@
 <app-header></app-header>
 <app-menu-button [label]="'Back to game?'" (click)="goBack()"></app-menu-button>
+<app-menu-button [label]="'Main Menu'" (click)="mainMenu()"></app-menu-button>
 <div *ngFor="let player of players">
     <div>{{ player.name }} {{player.score}}</div>
 </div>

@@ -38,4 +38,8 @@ export class ResultsComponent implements OnInit {
   goBack() {
     window.open(`http://localhost:4200/player/${this.code}/${this.name}`,'_self');
   }
+
+  mainMenu() {
+    window.open(`http://localhost:4200/`, '_self');
+  }
 }
