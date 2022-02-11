@@ -1,4 +1,4 @@
-<div class="row">
+<div class="row" *ngIf="!join">
     <form action="" [formGroup]="joinForm" (submit)="joinGame()">
         <input formControlName="code" type="text" name="code" placeholder="CODE" minlength="4" maxlength="4" required class="col-md-4 mx-2 text-uppercase">
         <input formControlName="name" type="text" name="name" placeholder="NAME" minlength="1" maxlength="12" required class="col-md-4 mx-2 text-uppercase">

@@ -1,7 +1,12 @@
+import { Game } from "./game";
+
 export class Player {
     id: number;
     name: string;
-    isHost: boolean;
+    game: Game;
+    host: boolean;
     responses: string;
-    gameId: number;
+    score: number;
+    responded:  boolean;
+    voted: boolean;
 }

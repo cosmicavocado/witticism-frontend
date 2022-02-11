@@ -8,10 +8,8 @@ import { AppComponent } from './app.component';
 import { HeaderComponent } from './components/header/header.component';
 import { MenuButtonComponent } from './components/menu-button/menu-button.component';
 import { MenuComponent } from './components/menu/menu.component';
-import { SidebarComponent } from './components/sidebar/sidebar.component';
 import { HostComponent } from './components/host/host.component';
 import { PromptComponent } from './components/prompt/prompt.component';
-import { ResponseComponent } from './components/response/response.component';
 import { AnswersComponent } from './components/answers/answers.component';
 import { VoteComponent } from './components/vote/vote.component';
 import { WaitComponent } from './components/wait/wait.component';
@@ -20,6 +18,7 @@ import { JoinComponent } from './components/join/join.component';
 import { LobbyComponent } from './components/lobby/lobby.component';
 import { MainComponent } from './components/main/main.component';
 import { PlayerComponent } from './components/player/player.component';
+import { ResultsComponent } from './components/results/results.component';
 
 @NgModule({
   declarations: [
@@ -27,10 +26,8 @@ import { PlayerComponent } from './components/player/player.component';
     HeaderComponent,
     MenuComponent,
     MenuButtonComponent,
-    SidebarComponent,
     HostComponent,
     PromptComponent,
-    ResponseComponent,
     AnswersComponent,
     VoteComponent,
     WaitComponent,
@@ -38,6 +35,7 @@ import { PlayerComponent } from './components/player/player.component';
     LobbyComponent,
     MainComponent,
     PlayerComponent,
+    ResultsComponent,
   ],
   imports: [
     BrowserModule,

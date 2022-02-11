@@ -6,6 +6,7 @@ import { JoinComponent } from './components/join/join.component';
 import { LobbyComponent } from './components/lobby/lobby.component';
 import { MainComponent } from './components/main/main.component';
 import { PlayerComponent } from './components/player/player.component';
+import { ResultsComponent } from './components/results/results.component';
 
 
 const routes: Routes = [
@@ -19,10 +20,10 @@ const routes: Routes = [
   },
   {
     path: 'host',
-    component: HostComponent
+    component: HostComponent,
   },
   {
-    path: 'lobby',
+    path: 'lobby/:code/:name',
     component: LobbyComponent
   },
   {
@@ -30,8 +31,12 @@ const routes: Routes = [
     component: MainComponent
   },
   {
-    path: 'player',
+    path: 'player/:code/:name',
     component: PlayerComponent
+  },
+  {
+    path: 'player/:code/:name/results',
+    component: ResultsComponent
   }
 ];
 
