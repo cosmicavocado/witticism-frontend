@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-import { Game } from 'src/app/game';
-import { GameService } from '../../game.service'
+import { Game } from 'src/app/classes/game';
+import { GameService } from '../../services/game.service'
 
 @Component({
   selector: 'app-lobby',

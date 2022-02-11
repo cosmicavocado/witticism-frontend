@@ -1,11 +1,11 @@
 import { Injectable } from '@angular/core';
-import { HttpClient, HttpErrorResponse, HttpHeaders, HttpResponse } from '@angular/common/http';
-import { Observable, map, catchError, throwError } from 'rxjs';
+import { HttpClient, HttpHeaders} from '@angular/common/http';
+import { Observable, map } from 'rxjs';
 
-import { Player } from './player';
-import { Game } from './game';
-import { Prompt } from './prompt';
-import { Response } from './response';
+import { Player } from '../classes/player';
+import { Game } from '../classes/game';
+import { Prompt } from '../classes/prompt';
+import { Response } from '../classes/response';
 
 @Injectable({
   providedIn: 'root'

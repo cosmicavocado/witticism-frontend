@@ -10,7 +10,7 @@ import { MenuButtonComponent } from './components/menu-button/menu-button.compon
 import { MenuComponent } from './components/menu/menu.component';
 import { HostComponent } from './components/host/host.component';
 import { PromptComponent } from './components/prompt/prompt.component';
-import { GameService } from './game.service';
+import { GameService } from './services/game.service';
 import { JoinComponent } from './components/join/join.component';
 import { LobbyComponent } from './components/lobby/lobby.component';
 import { MainComponent } from './components/main/main.component';

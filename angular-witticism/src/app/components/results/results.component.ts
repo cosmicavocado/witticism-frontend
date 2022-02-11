@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-import { Game } from 'src/app/game';
-import { GameService } from 'src/app/game.service';
-import { Player } from 'src/app/player';
+import { Game } from 'src/app/classes/game';
+import { GameService } from 'src/app/services/game.service';
+import { Player } from 'src/app/classes/player';
 
 @Component({
   selector: 'app-results',

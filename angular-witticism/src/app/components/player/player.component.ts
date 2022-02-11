@@ -3,11 +3,11 @@ import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { ActivatedRoute } from '@angular/router';
 import {interval} from "rxjs/internal/observable/interval";
 import { startWith, Subscription, switchMap } from 'rxjs';
-import { Game } from 'src/app/game';
 
-import { GameService } from 'src/app/game.service';
-import { Player } from 'src/app/player';
-import { Response } from 'src/app/response';
+import { GameService } from 'src/app/services/game.service';
+import { Game } from 'src/app/classes/game';
+import { Player } from 'src/app/classes/player';
+import { Response } from 'src/app/classes/response';
 
 @Component({
   selector: 'app-player',

@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
-import { GameService } from 'src/app/game.service';
-import { Game } from '../../game';
+import { GameService } from 'src/app/services/game.service';
+import { Game } from '../../classes/game';
 
 @Component({
   selector: 'app-host',
