@@ -1,8 +1,8 @@
-import { Component, ElementRef, EventEmitter, OnInit, Output } from '@angular/core';
+import { Component, ElementRef, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { ActivatedRoute } from '@angular/router';
 import {interval} from "rxjs/internal/observable/interval";
-import { map, startWith, Subscription, switchMap } from 'rxjs';
+import { startWith, Subscription, switchMap, timeInterval } from 'rxjs';
 import { Game } from 'src/app/game';
 
 import { GameService } from 'src/app/game.service';
@@ -39,6 +39,7 @@ export class PlayerComponent implements OnInit {
   responses: Response[];
   // polling
   timeInterval: Subscription;
+  subscription: Subscription;
   // players
   players: Array<Player>;
   //scores
@@ -121,12 +122,13 @@ export class PlayerComponent implements OnInit {
           this.players = players;
           return players;
         })
-        window.alert(`${this.player.name} ${this.player.score}`); 
+        this.timeInterval.unsubscribe();
+        window.open(`http://localhost:4200/player/${this.code}/${this.name}/results`);
       }
 
       // end stage
       if(this.stage === 'end') {
-        window.open(`http://localhost:4200/game/${this.code}/results`);
+        window.open(`http://localhost:4200/player/${this.code}/${this.name}/results`);
       }
       return game;
     }),
@@ -166,5 +168,6 @@ export class PlayerComponent implements OnInit {
 
   ngOnDestroy(): void {
     this.timeInterval.unsubscribe();
+    this.subscription.unsubscribe();
   }
 }

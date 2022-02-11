@@ -34,8 +34,9 @@
 </section>
 
 <!-- When game is in score stage -->
-<section *ngIf="this.stage === 'score' || this.stage === 'end'">
-    <div *ngFor="player of players">
-        <app-prompt [promptText]="player.name + ' ' +  player.score"></app-prompt>
+<section *ngIf="this.stage === 'score' || this.stage === 'end'" class="flex-container">
+    <div class="container justify-content-center align-items-center text-center">
+        <app-prompt [promptText]="'This game is over!'"></app-prompt>
+        <app-menu-button [label]="'View results?'"></app-menu-button>
     </div>
 </section>

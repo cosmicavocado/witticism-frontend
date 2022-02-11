@@ -11,6 +11,7 @@ import { Player } from 'src/app/player';
 })
 export class ResultsComponent implements OnInit {
   code: string
+  name: string;
   game: Game;
   gameId: number;
   players: Player[];
@@ -21,13 +22,20 @@ export class ResultsComponent implements OnInit {
     // map params
     this.route.params.subscribe(params => {
       this.code = params['code'];
+      this.name = params['name'];
       return params;
     })
-    if(this.code!== null) {
-      this.gameService.getGame(this.code).subscribe(game => {
-        this.game = game;
-        this.gameId = game.id;
+    this.gameService.getGame(this.code).subscribe(game => {
+      this.game = game;
+      this.gameId = game.id;
+      this.gameService.getPlayers(this.gameId).subscribe(players => {
+        this.players = players;
+        return players;
       })
-    }
+    })
+  }
+
+  goBack() {
+    window.open(`http://localhost:4200/player/${this.code}/${this.name}`,'_self');
   }
 }
