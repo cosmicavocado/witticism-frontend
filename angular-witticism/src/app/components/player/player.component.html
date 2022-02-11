@@ -7,7 +7,7 @@
 <!-- When game is in response stage -->
 <section *ngIf="game.stage === 'response'">
     <app-prompt [promptText]="this.prompt.text"></app-prompt>
-    <div class="d-grid my-4" *ngIf="this.responded==false">
+    <div class="d-grid my-4" *ngIf="this.responded===false">
         <form class="row" [formGroup]="responseForm" (submit)="sendResponse()">
             <input formControlName="text" type="text" name="text" class="response form-control mx-auto col-auto">
             <input type="submit" name="submit" value="Submit" class="btn-primary col-md-2 mx-2">
@@ -15,7 +15,7 @@
         </form>
     </div>
     <!-- If this player has responded but not all players have responded show wait message -->
-    <div *ngIf="this.responded==true && this.allResponses==false">
+    <div *ngIf="this.responded==true && this.allResponses===false">
         <app-prompt [promptText]="'Waiting for all player responses...'"></app-prompt>
     </div>
 </section>
@@ -24,7 +24,7 @@
 <!-- nfIf phase is voting: show answers & vote on click -->
 <section *ngIf="this.stage === 'vote'">
     <app-prompt [promptText]="this.prompt.text"></app-prompt>
-    <div class="container text-center" *ngIf="voted == false">
+    <div class="container text-center" *ngIf="voted===false">
         <div *ngFor="let response of responses; index as i" (click)="sendVote($event)" id="{{i}}"
         class="border border-primary my-2 p-4 fs-4 option" style="width: 400px;">{{response.responseText}}</div>
     </div>
@@ -37,6 +37,7 @@
 <section *ngIf="this.stage === 'score' || this.stage === 'end'" class="flex-container">
     <div class="container justify-content-center align-items-center text-center">
         <app-prompt [promptText]="'This game is over!'"></app-prompt>
-        <app-menu-button [label]="'View results?'"></app-menu-button>
+        <app-menu-button [label]="'View Results'" (click)="viewResults()"></app-menu-button>
+        <app-menu-button [label]="'Main Menu'" (click)="mainMenu()"></app-menu-button>
     </div>
 </section>
