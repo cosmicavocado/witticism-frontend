@@ -1,27 +1,66 @@
-# AngularWitticism
+# Witticism Front-End
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 13.1.2.
+This is the front-end for a game that's inspired by party games like Quiplash and Cards Against Humanity. Inspired by my real-life suffering due to covid and friends that moved away after college, the finished product would be able to be played remotely over your preferred video conferencing technology. Also, believe it or not, Witticism *is* a real word.. I am not actually that clever.
 
-## Development server
+[Back-End Repo](https://github.com/cosmicavocado/witticism-backend)
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
+<img src="planning/app-screenshot.png" width="600px" height="auto">
 
-## Code scaffolding
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+# Technologies
 
-## Build
+- Angular & Angular CLI
+- BootStrap 5
+- Java
+- Spring Boot
+- IntelliJ
+- vsCode
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
+# Planning
 
-## Running unit tests
+## Design
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+- [User Stories](planning/user-stories.md)
+- [Wireframes](/planning/wireframe.md)
+- [ERD](/planning/erd.png)
 
-## Running end-to-end tests
+## Process
 
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
+- Concept
+- Design / Planning
+    - Initial project description
+    - User Stories
+    - Wireframes
+- Project Approval
+- Implementation
 
-## Further help
+# What Would I Do Differently
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+- Aimed to do a little too much given the amount of time I had
+    - Had to trim a lot and refactor code to adjust for the smaller scale
+- Thought front-end components would be hardest part for me so I did a made a bunch of them over the weekend (which were to match my original)
+
+# Challenges
+
+- Learning to use jackson databind properly to read and write data
+- Chaning multiple API calls — It takes some time for the data to be returned so you have to be mindful in your approach
+
+# Wins
+
+- I made a strong attempt at mimicking a game I've always loved
+- Game is mostly in working order
+- I got to learn a ton about angular
+
+# What I Learned
+
+- How to convert POJO to JSON and visa versa using a Maven Dependency called [jackson databind](https://mvnrepository.com/artifact/com.fasterxml.jackson.core/jackson-databind)
+    - You can serialize an object as a string that can be stored in a database column
+    - You can also deserialize it back into an object
+    - This can be a useful technique for when you want to work with data without having a dedicated model
+    - Drawbacks: not optimized for large scale (slower than a dedicated model)
+    - Use this technique sparingly when you know it won't negatively affect the performance of your application
+- Polling in Angular
+    - A client can make a request to the server on a timer to check for changes and update itself accordingly
+    - This method is useful for applications where a web socket might not be appropriate
+    - It can take a toll on performance so that is a consideration to keep in mind
+    - Here is a [simple example](https://medium.com/weekly-webtips/polling-in-angular-how-to-use-rxjs-in-angular-for-polling-14c519f4c218) for anyone who may be interested
