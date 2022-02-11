@@ -4,7 +4,7 @@ This is the front-end for a game that's inspired by party games like Quiplash an
 
 [Back-End Repo](https://github.com/cosmicavocado/witticism-backend)
 
-<img src="planning/app-screenshot.png" width="600px" height="auto">
+<img src="planning/images/app-screenshot.png" width="600px" height="auto">
 
 
 # Technologies
