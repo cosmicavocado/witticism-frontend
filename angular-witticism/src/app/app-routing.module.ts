@@ -6,6 +6,7 @@ import { JoinComponent } from './components/join/join.component';
 import { LobbyComponent } from './components/lobby/lobby.component';
 import { MainComponent } from './components/main/main.component';
 import { PlayerComponent } from './components/player/player.component';
+import { ResultsComponent } from './components/results/results.component';
 
 
 const routes: Routes = [
@@ -32,6 +33,10 @@ const routes: Routes = [
   {
     path: 'player/:code/:name',
     component: PlayerComponent
+  },
+  {
+    path: 'game/:code/results',
+    component: ResultsComponent
   }
 ];
 

@@ -18,6 +18,7 @@ import { JoinComponent } from './components/join/join.component';
 import { LobbyComponent } from './components/lobby/lobby.component';
 import { MainComponent } from './components/main/main.component';
 import { PlayerComponent } from './components/player/player.component';
+import { ResultsComponent } from './components/results/results.component';
 
 @NgModule({
   declarations: [
@@ -34,6 +35,7 @@ import { PlayerComponent } from './components/player/player.component';
     LobbyComponent,
     MainComponent,
     PlayerComponent,
+    ResultsComponent,
   ],
   imports: [
     BrowserModule,
