@@ -25,8 +25,8 @@
 <section *ngIf="this.stage === 'vote'">
     <app-prompt [promptText]="this.prompt.text"></app-prompt>
     <div class="container text-center" *ngIf="voted == false">
-        <div *ngFor="let response of responses" (click)="sendVote($event)"
-        class="border border-primary my-2 p-4 fs-4" style="width: 400px;">{{response.responseText}}</div>
+        <div *ngFor="let response of responses; index as i" (click)="sendVote($event)" id="{{i}}"
+        class="border border-primary my-2 p-4 fs-4 option" style="width: 400px;">{{response.responseText}}</div>
     </div>
     <div *ngIf="voted == true">
         <app-prompt [promptText]="'Waiting for votes...'"></app-prompt>
@@ -34,3 +34,8 @@
 </section>
 
 <!-- When game is in score stage -->
+<section *ngIf="this.stage === 'score' || this.stage === 'end'">
+    <div *ngFor="player of players">
+        <app-prompt [promptText]="player.name + ' ' +  player.score"></app-prompt>
+    </div>
+</section>

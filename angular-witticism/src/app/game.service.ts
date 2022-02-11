@@ -73,8 +73,8 @@ export class GameService {
   }
 
   // get players
-  getPlayers(): Observable<Player[]> {
-    const url = `${this.baseUrl}/1/players`;
+  getPlayers(gameId: number): Observable<Player[]> {
+    const url = `${this.baseUrl}/${gameId}/players`;
     return this.http.get<Player[]>(url);
   }
 
@@ -101,5 +101,12 @@ export class GameService {
   getResponses(code: string, promptId: number): Observable<Response[]> {
     const url = `${this.baseUrl}/${code}/responses/${promptId}`;
     return this.http.get<Response[]>(url);
+  }
+
+  // send vote
+  sendVote(code: string, playerId: number, response: Response): Observable<any> {
+    const url = `${this.baseUrl}/${code}/vote/${playerId}`;
+    const body = { response };
+    return this.http.post(url, body);
   }
 }

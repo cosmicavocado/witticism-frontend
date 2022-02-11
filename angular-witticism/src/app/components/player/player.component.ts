@@ -39,10 +39,13 @@ export class PlayerComponent implements OnInit {
   responses: Response[];
   // polling
   timeInterval: Subscription;
-  // players list
+  // players
   players: Array<Player>;
+  //scores
+  scores: number[];
  // votes
  voteRespText: string;
+ voteRespId: number;
 
   constructor(private route: ActivatedRoute, private gameService: GameService, private element: ElementRef) { 
     this.responseForm = new FormGroup({
@@ -57,7 +60,7 @@ export class PlayerComponent implements OnInit {
       this.name = params['name'];
       return params;
     })
-    // get game
+    // set up game to start
     this.gameService.getGame(this.code)
     .subscribe(game => {
       this.game = game;
@@ -69,34 +72,63 @@ export class PlayerComponent implements OnInit {
         console.log(player);
         return player;
       })
-      // get prompt
-    this.gameService.getPrompt(this.code)
-    .subscribe(prompt => {
-      console.log(prompt),
-      this.prompt = prompt;
-      this.promptId = this.prompt.id;
-      return prompt;
-    })
       return game;
     })
-    // poll for game changes
+      // poll for game changes
     this.timeInterval = interval(5000)
     .pipe(
       startWith(0),
       switchMap(() => this.gameService.updateGame(this.code))
     ).subscribe(game => {
       console.log(game);
+
       // update game
       this.game = game;
+
      // update stage
       this.stage = game.stage;
+      
+      // reponse stage
+      if(this.stage === 'response') {
+        // get prompt
+        this.gameService.getPrompt(this.code)
+        .subscribe(prompt => {
+          console.log(prompt),
+          this.prompt = prompt;
+          this.promptId = this.prompt.id;
+          return prompt;
+        })
+        // get player and update values
+        this.gameService.getPlayer(this.game.id, this.name).subscribe(player => {
+          this.voted = player.voted;
+          return player;
+        })
+        return game;
+      }
+
       // vote stage
       if (this.stage == 'vote') {
+        this.allResponses = true;
         this.gameService.getResponses(this.code, this.promptId)
         .subscribe(responses => {
           this.responses = responses;
         })
       }
+
+      // score stage
+      if (this.stage == 'score') {
+        this.gameService.getPlayers(this.game.id).subscribe(players => {
+          this.players = players;
+          return players;
+        })
+        window.alert(`${this.player.name} ${this.player.score}`); 
+      }
+
+      // end stage
+      if(this.stage === 'end') {
+        window.open(`http://localhost:4200/game/${this.code}/results`);
+      }
+      return game;
     }),
       err => console.log('HTTP Error', err);
   }
@@ -115,9 +147,20 @@ export class PlayerComponent implements OnInit {
   }
 
   sendVote($event: Event) {
+    // target element
     this.element.nativeElement = $event.target;
-    this.voteRespText = this.element.nativeElement.textContent;
-    console.log(`${this.voteRespText}`);
+    // get playerId as element id
+    this.voteRespId = this.element.nativeElement.id;
+    console.log(this.voteRespId);
+    // select winning response
+    let winner: Response = this.responses.find(response => response.playerId === this.voteRespId);
+    // post vote
+    this.gameService.sendVote(this.code,this.playerId, winner)
+    .subscribe(response=> {
+      console.log(response);
+      return response;
+    })
+    // update vote status
     this.voted = true;
   }
 
