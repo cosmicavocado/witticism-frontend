@@ -64,3 +64,9 @@ This is the front-end for a game that's inspired by party games like Quiplash an
     - This method is useful for applications where a web socket might not be appropriate
     - It can take a toll on performance so that is a consideration to keep in mind
     - Here is a [simple example](https://medium.com/weekly-webtips/polling-in-angular-how-to-use-rxjs-in-angular-for-polling-14c519f4c218) for anyone who may be interested
+
+# Acknowledgements
+
+- Thanks to everyone on the instructional team for giving me a wonderful experience that I will keep with me for life. I can quite honestly say I've never had a learning experience as impactful or fulfilling as this one.
+    - Special thanks to Usman for being an amazing team-lead and going above and beyond in his role.
+- Thanks to Interapt for the opportunity to develop the career skills I've been seeking.
